@@ -1,5 +1,5 @@
 defmodule Verk.RetrySetTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   alias Verk.SortedSet
   import Verk.RetrySet
   import Mimic

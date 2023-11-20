@@ -1,5 +1,5 @@
 defmodule Verk.QueueStatsTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.QueueStats
   import Mimic
   alias Verk.QueueStatsCounters

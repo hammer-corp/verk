@@ -1,5 +1,5 @@
 defmodule Verk.SortedSetTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.SortedSet
   import Mimic
 

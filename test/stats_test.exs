@@ -1,5 +1,5 @@
 defmodule Verk.StatsTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.Stats
 
   setup do

@@ -1,5 +1,5 @@
 defmodule Verk.TimeTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   alias Verk.Time
 
   describe "shift/3" do

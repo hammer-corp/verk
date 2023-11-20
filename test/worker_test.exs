@@ -17,7 +17,7 @@ defmodule FailWorker do
 end
 
 defmodule Verk.WorkerTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.Worker
 
   describe "handle_cast/2" do

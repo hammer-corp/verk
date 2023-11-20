@@ -1,5 +1,5 @@
 defmodule Verk.QueueManagerTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.QueueManager
   import Mimic
   alias Verk.{QueueManager.State, Job, RetrySet, DeadSet}

@@ -1,5 +1,5 @@
 defmodule Verk.EventProducerTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.EventProducer
 
   describe "init/1" do

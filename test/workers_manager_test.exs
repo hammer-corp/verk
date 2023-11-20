@@ -1,5 +1,5 @@
 defmodule Verk.WorkersManagerTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Mimic
   import Verk.WorkersManager
   alias Verk.{WorkersManager.State}

@@ -1,5 +1,5 @@
 defmodule Verk.DeadSetTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   alias Verk.SortedSet
   import Verk.DeadSet
   import Mimic

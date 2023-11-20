@@ -1,5 +1,5 @@
 defmodule Verk.DslTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
   import Verk.Dsl
 
   def incr(x) do
