@@ -204,7 +204,7 @@ defmodule Verk.WorkersManager do
         succeed(job, start_time, worker, mref, state.monitors, state.queue_manager_name)
 
       _ ->
-        Logger.warn("Worker finished but such worker was not monitored #{inspect(worker)}")
+        Logger.warning("Worker finished but such worker was not monitored #{inspect(worker)}")
     end
 
     {:noreply, state, 0}
@@ -245,7 +245,7 @@ defmodule Verk.WorkersManager do
         )
 
       error ->
-        Logger.warn("Worker got down but it was not found, error: #{inspect(error)}")
+        Logger.warning("Worker got down but it was not found, error: #{inspect(error)}")
     end
   end
 
@@ -258,7 +258,7 @@ defmodule Verk.WorkersManager do
         succeed(job, start_time, worker, mref, state.monitors, state.queue_manager_name)
 
       _ ->
-        Logger.warn("#{job_id} finished but no worker was monitored")
+        Logger.warning("#{job_id} finished but no worker was monitored")
     end
 
     {:noreply, state, 0}
@@ -282,7 +282,7 @@ defmodule Verk.WorkersManager do
         )
 
       _ ->
-        Logger.warn("#{job_id} failed but no worker was monitored")
+        Logger.warning("#{job_id} failed but no worker was monitored")
     end
 
     {:noreply, state, 0}

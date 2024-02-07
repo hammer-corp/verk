@@ -37,7 +37,7 @@ defmodule Verk.Worker do
     {:stop, :normal, state}
   rescue
     exception ->
-      GenServer.cast(manager, {:failed, self(), job.jid, exception, System.stacktrace()})
+      GenServer.cast(manager, {:failed, self(), job.jid, exception, __STACKTRACE__})
       {:stop, :failed, state}
   end
 end

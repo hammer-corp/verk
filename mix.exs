@@ -31,10 +31,10 @@ defmodule Verk.Mixfile do
   defp deps do
     [
       {:redix, "~> 1.3"},
-      {:jason, "~> 1.0"},
+      {:jason, "~> 1.4.1"},
       {:poolboy, "~> 1.5"},
       {:confex, "~> 3.3"},
-      {:gen_stage, "~> 1.0"},
+      {:gen_stage, "~> 1.2.1"},
       {:credo, "~> 0.9", only: [:dev, :test]},
       {:earmark, "~> 1.0", only: :dev},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},

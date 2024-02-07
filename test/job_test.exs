@@ -53,24 +53,27 @@ defmodule Verk.JobTest do
         Job.encode!(%Verk.Job{})
         |> Job.decode!()
 
-      assert map ==
-               %Verk.Job{
-                 args: [],
-                 class: nil,
-                 created_at: nil,
-                 enqueued_at: nil,
-                 error_backtrace: nil,
-                 error_message: nil,
-                 failed_at: nil,
-                 finished_at: nil,
-                 jid: nil,
-                 max_retry_count: nil,
-                 original_json:
-                   "{\"args\":\"[]\",\"class\":null,\"created_at\":null,\"enqueued_at\":null,\"error_backtrace\":null,\"error_message\":null,\"failed_at\":null,\"finished_at\":null,\"jid\":null,\"max_retry_count\":null,\"queue\":null,\"retried_at\":null,\"retry_count\":0}",
-                 queue: nil,
-                 retried_at: nil,
-                 retry_count: 0
-               }
+      assert %Verk.Job{
+               args: [],
+               class: nil,
+               created_at: nil,
+               enqueued_at: nil,
+               error_backtrace: nil,
+               error_message: nil,
+               failed_at: nil,
+               finished_at: nil,
+               jid: nil,
+               max_retry_count: nil,
+               original_json: original_json,
+               queue: nil,
+               retried_at: nil,
+               retry_count: 0
+             } = map
+
+      assert Jason.decode!(original_json) ==
+               Jason.decode!(
+                 "{\"args\":\"[]\",\"class\":null,\"created_at\":null,\"enqueued_at\":null,\"error_backtrace\":null,\"error_message\":null,\"failed_at\":null,\"finished_at\":null,\"jid\":null,\"max_retry_count\":null,\"queue\":null,\"retried_at\":null,\"retry_count\":0}"
+               )
     end
 
     test "Overrides configurations if they are passed" do
@@ -78,24 +81,27 @@ defmodule Verk.JobTest do
         Job.encode!(%Verk.Job{max_retry_count: 5, queue: :default})
         |> Job.decode!()
 
-      assert map ==
-               %Verk.Job{
-                 args: [],
-                 class: nil,
-                 created_at: nil,
-                 enqueued_at: nil,
-                 error_backtrace: nil,
-                 error_message: nil,
-                 failed_at: nil,
-                 finished_at: nil,
-                 jid: nil,
-                 max_retry_count: 5,
-                 original_json:
-                   "{\"args\":\"[]\",\"class\":null,\"created_at\":null,\"enqueued_at\":null,\"error_backtrace\":null,\"error_message\":null,\"failed_at\":null,\"finished_at\":null,\"jid\":null,\"max_retry_count\":5,\"queue\":\"default\"\,\"retried_at\":null,\"retry_count\":0}",
-                 queue: "default",
-                 retried_at: nil,
-                 retry_count: 0
-               }
+      assert %Verk.Job{
+               args: [],
+               class: nil,
+               created_at: nil,
+               enqueued_at: nil,
+               error_backtrace: nil,
+               error_message: nil,
+               failed_at: nil,
+               finished_at: nil,
+               jid: nil,
+               max_retry_count: 5,
+               original_json: original_json,
+               queue: "default",
+               retried_at: nil,
+               retry_count: 0
+             } = map
+
+      assert Jason.decode!(original_json) ==
+               Jason.decode!(
+                 "{\"args\":\"[]\",\"class\":null,\"created_at\":null,\"enqueued_at\":null,\"error_backtrace\":null,\"error_message\":null,\"failed_at\":null,\"finished_at\":null,\"jid\":null,\"max_retry_count\":5,\"queue\":\"default\"\,\"retried_at\":null,\"retry_count\":0}"
+               )
     end
   end
 

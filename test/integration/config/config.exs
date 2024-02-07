@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 config :verk,
   queues: [queue_one: 5, queue_two: 5],

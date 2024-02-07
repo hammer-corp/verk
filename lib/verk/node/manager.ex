@@ -33,7 +33,7 @@ defmodule Verk.Node.Manager do
 
     with {:ok, faulty_nodes} <- find_faulty_nodes(local_verk_node_id) do
       for faulty_verk_node_id <- faulty_nodes do
-        Logger.warn("Verk Node #{faulty_verk_node_id} seems to be down. Restoring jobs!")
+        Logger.warning("Verk Node #{faulty_verk_node_id} seems to be down. Restoring jobs!")
 
         cleanup_queues(faulty_verk_node_id)
 
@@ -69,12 +69,12 @@ defmodule Verk.Node.Manager do
   end
 
   def terminate(reason, _state) do
-    Logger.warn("Node.Manager terminating. Reason: #{reason}")
+    Logger.warning("Node.Manager terminating. Reason: #{reason}")
     :ok
   end
 
   defp do_terminate(reason, local_verk_node_id) do
-    Logger.warn("Local Verk Node '#{local_verk_node_id}' terminating. Reason: #{inspect(reason)}")
+    Logger.warning("Local Verk Node '#{local_verk_node_id}' terminating. Reason: #{inspect(reason)}")
 
     cleanup_queues(local_verk_node_id)
 

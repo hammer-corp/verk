@@ -1,7 +1,9 @@
 defmodule Verk.QueuesDrainerTest do
   use ExUnit.Case, async: false
+
   alias Verk.EventProducer
   import Verk.QueuesDrainer
+
   import Mimic
 
   setup :verify_on_exit!

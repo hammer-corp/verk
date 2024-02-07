@@ -53,7 +53,7 @@ defmodule Verk.QueuesDrainer do
   end
 
   defp do_terminate(shutdown_timeout) do
-    Logger.warn("Pausing all queues. Max timeout: #{shutdown_timeout}")
+    Logger.warning("Pausing all queues. Max timeout: #{shutdown_timeout}")
 
     {:ok, _pid} = Consumer.start_link()
 
@@ -64,7 +64,7 @@ defmodule Verk.QueuesDrainer do
       end
 
     n_queues = MapSet.size(queues)
-    Logger.warn("Waiting for #{n_queues} queue(s)")
+    Logger.warning("Waiting for #{n_queues} queue(s)")
 
     for x <- 0..n_queues, x > 0 do
       receive do
@@ -76,7 +76,7 @@ defmodule Verk.QueuesDrainer do
       end
     end
 
-    Logger.warn("All queues paused. Shutting down.")
+    Logger.warning("All queues paused. Shutting down.")
     :ok
   end
 end
